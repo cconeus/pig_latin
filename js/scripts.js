@@ -1,13 +1,16 @@
 var count = 0;
-debugger;
 var pigLatin = function(word, count) {
     var wordArray = word.split(" ");
     var index = wordArray.length;
-console.log(count);
-    if (index===1) {
-        var output = transform(word);
-    } else if (count<index){
-        var output = transform(wordArray[count]) + ' ' + pigLatin(word, count+1);
+    var outputarray = [];
+    for (count; count<index; count++) {
+        if (index===1) {
+            var output = transform(word);
+        } else if (count<index){
+            var transformedword = transform(wordArray[count]);
+            outputarray.push(transformedword);
+            var output = outputarray.join(" ");
+        }
     }
     return output;
 };
@@ -42,7 +45,7 @@ var transform = function(word) {
 $(document).ready(function() {
     $("form#piglatin").submit(function(event){
         var word = $("input#word").val();
-        var result = pigLatin(word);
+        var result = pigLatin(word, count);
 
         $(".output").text(result);
 

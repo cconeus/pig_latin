@@ -20,6 +20,6 @@ describe('pigLatin', function() {
     });
 
     it("returns pigLatin version of all words in a multiple word expression", function (){
-        expect(pigLatin("zebra kill", count)).to.equal("ebra-zay ill-kay");
+        expect(pigLatin("zebra kills tiger", count)).to.equal("ebra-zay ills-kay iger-tay");
     });
 });
